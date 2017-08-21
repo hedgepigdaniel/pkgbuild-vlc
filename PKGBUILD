@@ -56,11 +56,13 @@ replaces=('vlc-plugin')
 options=('!emptydirs')
 source=(https://download.videolan.org/${pkgname}/${pkgver}/${pkgname}-${pkgver}.tar.xz{,.asc}
         update-vlc-plugin-cache.hook
-        lua53_compat.patch)
+        lua53_compat.patch
+        ea9923794767e5e65b0cfb3b9b51a2e593c3d75b.patch)
 sha512sums=('9aff5922eb8b3c6a24e6153c367b0170dbc67602ae3e9304f52d2da00c9081d66cc98abd722b7c95b6c7d2e6cc7c86f21f9cba42c7d4bf29ca97d0f2d3553f8d'
             'SKIP'
             'd9e69a01eb8868647beac0f419328e6ca3fe14a2e2a9e6ce4b61ed590b41b0136fb3ac9e284b174a910c2fe8822d1b37445a48d0b7caea647060ebfabe899e7b'
-            '33cda373aa1fb3ee19a78748e2687f2b93c8662c9fda62ecd122a2e649df8edaceb54dda3991bc38c80737945a143a9e65baa2743a483bb737bb94cd590dc25f')
+            '33cda373aa1fb3ee19a78748e2687f2b93c8662c9fda62ecd122a2e649df8edaceb54dda3991bc38c80737945a143a9e65baa2743a483bb737bb94cd590dc25f'
+            '6fcc5b4e5ba64d9f595cf7c1623c3c53e6569b4af28e31248400515c55a7d478b90dc8ec89b2de90a4480f33277249ec103ffdbe8206c57934888aa961e95d0d')
 validpgpkeys=('65F7C6B4206BD057A7EB73787180713BE58D1ADC') # VideoLAN Release Signing Key
 
 prepare() {
@@ -68,6 +70,7 @@ prepare() {
   sed -i -e 's:truetype/freefont:TTF:g' modules/text_renderer/freetype.c
   sed -i -e 's:truetype/ttf-dejavu:TTF:g' modules/visualization/projectm.cpp
   patch -p1 < "${srcdir}/lua53_compat.patch"
+  patch -p1 < "${srcdir}/ea9923794767e5e65b0cfb3b9b51a2e593c3d75b.patch"
 }
 
 build() {

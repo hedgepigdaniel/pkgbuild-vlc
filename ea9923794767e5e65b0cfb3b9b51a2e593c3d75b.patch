@@ -1,0 +1,26 @@
+From ea9923794767e5e65b0cfb3b9b51a2e593c3d75b Mon Sep 17 00:00:00 2001
+From: Mathieu Velten <matmaul@gmail.com>
+Date: Wed, 28 Jun 2017 21:29:40 +0200
+Subject: [PATCH] remove X11BypassWindowManagerHint from time tooltip
+
+Fixes #17829
+
+Signed-off-by: Jean-Baptiste Kempf <jb@videolan.org>
+---
+ modules/gui/qt4/util/timetooltip.cpp | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/modules/gui/qt4/util/timetooltip.cpp b/modules/gui/qt4/util/timetooltip.cpp
+index 9afb30ca9eb..0657210f1ac 100644
+--- a/modules/gui/qt4/util/timetooltip.cpp
++++ b/modules/gui/qt4/util/timetooltip.cpp
+@@ -35,8 +35,7 @@ TimeTooltip::TimeTooltip( QWidget *parent ) :
+ {
+     setWindowFlags( Qt::Tool                    |
+                     Qt::WindowStaysOnTopHint    |
+-                    Qt::FramelessWindowHint     |
+-                    Qt::X11BypassWindowManagerHint );
++                    Qt::FramelessWindowHint     );
+ 
+     // Tell Qt that it doesn't need to erase the background before
+     // a paintEvent occurs. This should save some CPU cycles.

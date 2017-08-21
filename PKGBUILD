@@ -79,7 +79,6 @@ build() {
   export PKG_CONFIG_PATH="/usr/lib/ffmpeg2.8/pkgconfig"
   export CFLAGS+=" -I/usr/include/samba-4.0"
   export CPPFLAGS+=" -I/usr/include/samba-4.0"
-  export CXXFLAGS+=" -std=gnu++98"
   export LUAC=/usr/bin/luac
   export LUA_LIBS="`pkg-config --libs lua`"
   export RCC=/usr/bin/rcc-qt4
